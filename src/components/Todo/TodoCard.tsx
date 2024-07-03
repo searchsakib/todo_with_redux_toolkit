@@ -1,6 +1,6 @@
 const TodoCard = () => {
   return (
-    <div className='flex items-center justify-evenly bg-teal-700 p-3 text-[#ECF0F1] font-medium'>
+    <div className='flex items-center justify-evenly border p-3 font-medium rounded-lg text-[#ffcf20]'>
       <input type='checkbox' name='checkbox' id='checkbox' />
       <p>Todo Title</p>
       <p>Time</p>
