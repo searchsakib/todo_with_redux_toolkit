@@ -2,7 +2,7 @@ import TodoCard from './TodoCard';
 
 const TodoContainer = () => {
   return (
-    <div className='p-10'>
+    <div>
       <div>
         <button>Add Todo</button>
         <button>Filter</button>

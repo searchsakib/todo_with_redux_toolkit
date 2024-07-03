@@ -4,7 +4,7 @@ import Container from '@/components/ui/container';
 const TodoPage = () => {
   return (
     <Container>
-      <h2 className='text-center text-3xl pb-5'>My Todos</h2>
+      <h2 className='text-center text-3xl p-5'>My Todos</h2>
       <TodoContainer></TodoContainer>
     </Container>
   );
