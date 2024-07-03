@@ -1,11 +1,10 @@
-import { Button } from './components/ui/button';
+import TodoPage from './pages/TodoPage/TodoPage';
 
 function App() {
   return (
-    <>
-      <h2>hello man!</h2>
-      <Button variant='destructive'>This</Button>
-    </>
+    <div>
+      <TodoPage></TodoPage>
+    </div>
   );
 }
 
