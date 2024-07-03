@@ -1,11 +1,12 @@
+import { Button } from '../ui/button';
 import TodoCard from './TodoCard';
 
 const TodoContainer = () => {
   return (
     <div>
-      <div>
-        <button>Add Todo</button>
-        <button>Filter</button>
+      <div className='mb-5 flex justify-between'>
+        <Button className='bg-primary-gradient'>Add Todo</Button>
+        <Button className='bg-secondary-gradient'>Filter</Button>
       </div>
       <div className='bg-primary-gradient w-full h-full rounded-md p-[5px]'>
         <div className='space-y-3 bg-white p-5'>
