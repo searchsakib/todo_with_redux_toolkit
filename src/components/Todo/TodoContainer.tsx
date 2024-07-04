@@ -14,9 +14,11 @@ const TodoContainer = () => {
       </div>
       <div className='bg-primary-gradient w-full h-full rounded-md p-[5px]'>
         <div className='space-y-3 bg-[#181A1B] p-5'>
-          {allTodo.map((item) => (
-            <TodoCard key={item.id} {...item} />
-          ))}
+          {allTodo?.length ? (
+            allTodo.map((item) => <TodoCard key={item.id} {...item} />)
+          ) : (
+            <p className='text-center text-xl'>No Tasks added yet!</p>
+          )}
         </div>
       </div>
       {/* <div className='text-[#ffcf20] text-center text-2xl'>No Todos Here!</div> */}
