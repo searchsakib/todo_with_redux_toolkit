@@ -73,7 +73,7 @@ module.exports = {
       },
       backgroundImage: {
         'primary-gradient': 'linear-gradient(30deg,#0080f6,#aa55FF)',
-        'secondary-gradient': 'linear-gradient(30deg, #33aaff, #2277d5)',
+        'secondary-gradient': 'linear-gradient(30deg,  #2277d5,#1177a1)',
       },
     },
   },
