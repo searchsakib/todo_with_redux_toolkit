@@ -13,7 +13,7 @@ const TodoCard = ({ id, title, description }: TTodoCardProps) => {
   const dispatch = useAppDispatch();
 
   return (
-    <div className='flex items-center justify-evenly border border-blue-400 p-3 font-medium rounded-lg'>
+    <div className='flex items-center justify-between border border-blue-400 p-3 font-medium rounded-lg'>
       <input type='checkbox' name='checkbox' id='checkbox' />
       <p>{title}</p>
       {/* <p>Time</p> */}
