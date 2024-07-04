@@ -1,9 +1,10 @@
+import { FormEvent, useState } from 'react';
 import { Button } from '../ui/button';
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -12,6 +13,13 @@ import { Input } from '../ui/input';
 import { Label } from '../ui/label';
 
 const AddTodoModal = () => {
+  const [task, setTask] = useState('');
+  const [description, setDescription] = useState('');
+  const onSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    console.log({ task, description });
+  };
+
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -24,34 +32,40 @@ const AddTodoModal = () => {
           <DialogTitle>Add Task</DialogTitle>
           <DialogDescription>Tasks you want to finish</DialogDescription>
         </DialogHeader>
-        <div className='grid gap-4 py-4'>
-          <div className='grid grid-cols-4 items-center gap-4'>
-            <Label htmlFor='task' className='text-right'>
-              Task
-            </Label>
-            <Input
-              id='task'
-              className='col-span-3 bg-[#181A1B] focus:outline'
-            />
+        <form onSubmit={onSubmit}>
+          <div className='grid gap-4 py-4'>
+            <div className='grid grid-cols-4 items-center gap-4'>
+              <Label htmlFor='task' className='text-right'>
+                Task
+              </Label>
+              <Input
+                onBlur={(e) => setTask(e.target.value)}
+                id='task'
+                className='col-span-3 bg-[#181A1B] focus:outline'
+              />
+            </div>
+            <div className='grid grid-cols-4 items-center gap-4'>
+              <Label htmlFor='description' className='text-right'>
+                Description
+              </Label>
+              <Input
+                onBlur={(e) => setDescription(e.target.value)}
+                id='description'
+                className='col-span-3 bg-[#181A1B] focus:outline'
+              />
+            </div>
           </div>
-          <div className='grid grid-cols-4 items-center gap-4'>
-            <Label htmlFor='description' className='text-right'>
-              Description
-            </Label>
-            <Input
-              id='description'
-              className='col-span-3 bg-[#181A1B] focus:outline'
-            />
+          <div className='flex justify-end'>
+            <DialogClose asChild>
+              <Button
+                className='bg-white text-black hover:bg-slate-300'
+                type='submit'
+              >
+                Add Task
+              </Button>
+            </DialogClose>
           </div>
-        </div>
-        <DialogFooter>
-          <Button
-            className='bg-white text-black hover:bg-slate-300'
-            type='submit'
-          >
-            Add Task
-          </Button>
-        </DialogFooter>
+        </form>
       </DialogContent>
     </Dialog>
   );
