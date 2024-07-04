@@ -2,7 +2,7 @@ import TodoPage from './pages/TodoPage/TodoPage';
 
 function App() {
   return (
-    <div>
+    <div className='bg-[#181A1B]'>
       <TodoPage></TodoPage>
     </div>
   );

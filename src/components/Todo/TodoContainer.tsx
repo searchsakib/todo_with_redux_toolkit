@@ -10,7 +10,7 @@ const TodoContainer = () => {
         <TodoFilter></TodoFilter>
       </div>
       <div className='bg-primary-gradient w-full h-full rounded-md p-[5px]'>
-        <div className='space-y-3 bg-white p-5'>
+        <div className='space-y-3 bg-[#181A1B] p-5'>
           <TodoCard></TodoCard>
           <TodoCard></TodoCard>
           <TodoCard></TodoCard>

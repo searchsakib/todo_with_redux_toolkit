@@ -2,13 +2,13 @@ import { Button } from '../ui/button';
 
 const TodoCard = () => {
   return (
-    <div className='flex items-center justify-evenly border border-blue-950 p-3 font-medium rounded-lg'>
+    <div className='flex items-center justify-evenly border border-blue-400 p-3 font-medium rounded-lg'>
       <input type='checkbox' name='checkbox' id='checkbox' />
       <p>Todo Title</p>
       <p>Time</p>
       <p>Description</p>
       <div className='flex gap-5'>
-        <Button className='bg-[#1174d0]'>
+        <Button className='bg-[#1174d0] hover:outline hover:outline-1'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             fill='none'
@@ -24,7 +24,7 @@ const TodoCard = () => {
             />
           </svg>
         </Button>
-        <Button className='bg-red-700'>
+        <Button className='bg-red-700 hover:outline hover:outline-1'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             fill='none'
