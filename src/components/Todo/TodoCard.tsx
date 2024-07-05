@@ -1,9 +1,8 @@
-import { useAppDispatch } from '@/redux/hook';
+import { useUpdateTodoMutation } from '@/redux/api/api';
 import { Button } from '../ui/button';
-import { removeTodo, statusTodo } from '@/redux/features/todoSlice';
 
 type TTodoCardProps = {
-  id: string;
+  _id: string;
   title: string;
   description: string;
   isCompleted?: boolean;
@@ -11,28 +10,44 @@ type TTodoCardProps = {
 };
 
 const TodoCard = ({
-  id,
+  _id,
   title,
   description,
   isCompleted,
   priority,
 }: TTodoCardProps) => {
-  const dispatch = useAppDispatch();
+  // const dispatch = useAppDispatch();
+  const [updateTodo] = useUpdateTodoMutation();
 
   const handleToggle = () => {
-    dispatch(statusTodo(id));
+    const taskDetailsForUpdate = {
+      id: _id,
+      data: {
+        title,
+        description,
+        priority,
+        isCompleted: !isCompleted,
+      },
+    };
+
+    updateTodo(taskDetailsForUpdate);
   };
 
   return (
-    <div className='flex items-center justify-between border border-blue-400 px-5 py-4 font-medium rounded-lg'>
+    <div className='flex items-center justify-between border border-blue-400 px-5 py-4 font-medium rounded-lg '>
       <input
         className='mr-3'
         onChange={handleToggle}
         type='checkbox'
         name='complete'
         id='complete'
+        defaultChecked={isCompleted}
       />
-      <p className='flex-1'>{title}</p>
+      {isCompleted ? (
+        <p className='flex-1 text-gray-400'>{title}</p>
+      ) : (
+        <p className='flex-1'>{title}</p>
+      )}
       <div className='flex items-center justify-start gap-2 flex-1'>
         <p
           className={`size-2 rounded ${
@@ -41,17 +56,25 @@ const TodoCard = ({
             priority === 'low' ? 'bg-green-500' : null
           }`}
         ></p>
-        <p>{priority}</p>
+        {isCompleted ? (
+          <p className='text-gray-400'>{priority}</p>
+        ) : (
+          <p>{priority}</p>
+        )}
       </div>
 
       <div className='flex-1'>
         {isCompleted ? (
-          <p className='text-green-500 ='>done</p>
+          <p className='text-green-500'>Done</p>
         ) : (
-          <p className='text-red-500 '>pending</p>
+          <p className='text-red-500'>Pending</p>
         )}
       </div>
-      <p className='flex-[2]'>{description}</p>
+      {isCompleted ? (
+        <p className='flex-[2] text-gray-400'>{description}</p>
+      ) : (
+        <p className='flex-[2]'>{description}</p>
+      )}
       <div className='flex gap-5'>
         <Button className='bg-[#1174d0] hover:outline hover:outline-1'>
           <svg
@@ -70,7 +93,7 @@ const TodoCard = ({
           </svg>
         </Button>
         <Button
-          onClick={() => dispatch(removeTodo(id))}
+          // onClick={() => dispatch(removeTodo(id))}
           className='bg-red-700 hover:outline hover:outline-1'
         >
           <svg
