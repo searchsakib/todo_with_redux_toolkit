@@ -10,8 +10,7 @@ import {
   DropdownMenuTrigger,
 } from '../ui/dropdown-menu';
 
-const TodoFilter = () => {
-  const [position, setPosition] = useState('bottom');
+const TodoFilter = ({ priority, setPriority }) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -22,7 +21,8 @@ const TodoFilter = () => {
       <DropdownMenuContent className='w-56 bg-[#181A1B] text-white'>
         <DropdownMenuLabel>Filter By Priority</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuRadioGroup value={position} onValueChange={setPosition}>
+        <DropdownMenuRadioGroup value={priority} onValueChange={setPriority}>
+          <DropdownMenuRadioItem value=''>All</DropdownMenuRadioItem>
           <DropdownMenuRadioItem value='high'>High</DropdownMenuRadioItem>
           <DropdownMenuRadioItem value='medium'>Medium</DropdownMenuRadioItem>
           <DropdownMenuRadioItem value='low'>Low</DropdownMenuRadioItem>
